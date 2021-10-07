@@ -16,4 +16,5 @@ We want to make gaming and online socializing easier and funnier than ever. We a
 = Project Members
 
 Stana Andrei - Backend, Functionability, System planning
+-
 Kyaw Htet Htun - Mostly Frontend, Fullstack, Responsive design
