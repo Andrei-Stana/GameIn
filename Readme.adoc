@@ -13,8 +13,12 @@ Aside from that we want to implement different party functionalities like tourna
 
 We want to make gaming and online socializing easier and funnier than ever. We also want to support people who want to start a career in e-sports as server owners and average gamers.
 
+= Technologies we want to use
+
+*HTML, CSS, Typescript, Svelte, MariaDB, JWT, Docker, Kubernetes, Websockets, NodeJS*
+
 = Project Members
 
 Stana Andrei - Backend, Functionability, System planning
--
+
 Kyaw Htet Htun - Mostly Frontend, Fullstack, Responsive design
