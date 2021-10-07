@@ -13,6 +13,12 @@ Aside from that we want to implement different party functionalities like tourna
 
 We want to make gaming and online socializing easier and funnier than ever. We also want to support people who want to start a career in e-sports as server owners and average gamers.
 
+= Website Structure
+
+We will have a log in / register part if you're not already registered or logged in. If you're logged in you will see a feed where parties are displayed with the language the people are speaking in those parties and the game they're currently playing. There will be game feeds too where you can post everything about your favourite game and debate it.
+
+You'll be able if you pay our premium version monthly to customize your account.
+
 = Technologies we want to use
 
 *HTML, CSS, Typescript, Svelte, MariaDB, JWT, Docker, Kubernetes, Websockets, NodeJS*
