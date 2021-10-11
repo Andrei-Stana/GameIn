@@ -1,7 +1,5 @@
 /*ToDo
-    Logo hinzufügen.
     Underline animation "About", "Our Goal" and "Login"
-    Slogen entwickeln
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 /*font-family: 'Roboto', sans-serif;*/
@@ -95,26 +93,23 @@ main p{
 }
 
 main p span{
-    text-decoration: none;
     color: white;
     background-color: rgba(128, 128, 128, 0.2);
     width: 120px;
     height: 100px;
     font-weight: 600;
-    box-shadow: 8px 8px 22px -2px #000000;
+    box-shadow: 8px 8px 4px 0px #000000;
     border-radius: 5px 5px 5px 5px;
     transition: 200ms;
 }
 
 main p span a:visited{
-    text-decoration: none;
     color: white;
 }
 
 main p span:hover{
     letter-spacing: 2px;
-    box-shadow: 16px 16px 44px -4px #000000;
-    text-decoration: underline;
+    box-shadow: 10px 10px 6px 2px #000000;
 }
 
 main .quote{
