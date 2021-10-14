@@ -30,7 +30,7 @@ You'll be able if you pay our premium version monthly to customize your account.
 2. About us site till november
 3. Explaining our Goal on another site till december
 
-=Risks and Migration strategies
+= Risks and Migration strategies
 
 The biggest risk will be the lack of time, but we plan to remove some ideas and improve the simpler ones to complement them.
 Another risk will be that the idea won't seem good enough. We want to make it cool by making a good presentation for it and designing an eye catching UI.
