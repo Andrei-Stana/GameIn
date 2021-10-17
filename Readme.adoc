@@ -51,3 +51,8 @@ The knowledge of different technologies will be a small problem but if we don't 
 Stana Andrei - Backend, Functionability, System planning
 
 Kyaw Htet Htun - Mostly Frontend, Fullstack, Responsive design
+
+Organisation & Technology - Andrei Stana
+
+Design & UX planning - Kyaw Htet Htun
+
