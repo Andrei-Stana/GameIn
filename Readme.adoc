@@ -24,11 +24,21 @@ You'll be able if you pay our premium version monthly to customize your account.
 *HTML, CSS, Typescript, Svelte, MariaDB, JWT, Websockets, NodeJS*
 
 = Tasks
-* Frontend first semester
-. Index start site till November
-. Background animationen
-. About us site till november
-. Explaining our Goal on another site till december
+* First semester
+. Index start site till 01.November
+. Background animations till 01. December
+. About us site till 01. november
+. Explaining our Goal on another site till 01. December
+
+* Second semester
+. Make chatting possible 
+. Create parties
+. Make it possible to create and customize an account
+. Create feed system
+
+Second semester deadlines are not fixed until we are done with the first semester ones! But they are aranged in an chronological order.
+
+
 
 = Risks and Migration strategies
 
