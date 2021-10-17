@@ -24,7 +24,7 @@ You'll be able if you pay our premium version monthly to customize your account.
 *HTML, CSS, Typescript, Svelte, MariaDB, JWT, Websockets, NodeJS*
 
 = Tasks
-== Frontend first semester
+* Frontend first semester
 . Index start site till November
 . Background animationen
 . About us site till november
