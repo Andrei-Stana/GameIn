@@ -7,6 +7,8 @@
 /*font-family: 'Poppins', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Raleway:wght@200&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&display=swap');
+/*font-family: 'Noto Sans Mono', monospace;*/
 *{
     margin: 0;
     padding: 0;
@@ -17,43 +19,59 @@ body{
     color: white;
     overflow: hidden;
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-header{
-    margin-top: 30px;
+
+nav{
+    display: flex;
+    align-items:center;
 }
 
-nav span{
-    display: block;
-}
-
-nav span a, .login{
-    vertical-align: middle;
-    text-decoration: none;
-    color: white;
-    margin-left: 75px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 2em;
-    transition: 0.2s;
-    text-shadow: 2px 2px #3d3d3dd7;   
-}
-
-nav span a:hover{
-    letter-spacing: 2px;
-    text-shadow: 4px 4px #3d3d3dd7;   
+.goal, .about{
+    margin-left: 100px;
 }
 
 .login{
-    position: relative;
-    float: right;
-    margin-top: 10px;
-    margin-right: 50px;
+    margin-left: 700px;
 }
 
+nav span a{
+    vertical-align: middle;
+    text-decoration: none;
+    color: white;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 2em;
+    transition: 0.2s;
+    text-shadow: 2px 2px #3d3d3dd7;   
+    position: relative;
+}
 
+nav span a::after{
+    content: "";
+    background-color: white;
+    width: 0;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 200ms;
+}
+
+nav span a:hover{
+    letter-spacing: 1px;
+}
+
+nav span a:hover::after{
+    content: "";
+    background-color: white;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
 
 .register{
     background-color: rgba(66, 66, 66, 0.5);
@@ -89,7 +107,7 @@ main p{
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    font-size: 6em;
+    font-size: 5em;
 }
 
 main p span{
@@ -145,44 +163,12 @@ main .quote{
 
 
 
-@media (max-width: 814px) {
-    body{
-        background: linear-gradient(240deg, rgba(255,0,0,1) 0%, rgba(41,99,255,1) 50%, rgba(81,255,104,1) 100%);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+@media (max-width: 800px) {
 
-    .register{
-        margin-bottom: 150px;
-        width: 500px;
-        height: 120px;
-    }
-    
-    .register img{
-        width: 75px;
-        padding: 10px;
-        transition: 0.2s;
-    }
-    
-    .register img:hover{
-        width: 80px;
-    }
 
-    main p{
-        margin-top: 50px;
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.5em;
-    }
-
-    nav span a{
-        margin-left: 75px;
-        font-size: 1.5em;
-    }
 
     .login{
-        margin-top: 20px;
-        margin-right: 20px;
+        margin-left: 500px;
     }
 
 
