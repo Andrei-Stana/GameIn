@@ -24,7 +24,7 @@ body{
 }
 
 
-nav{
+nav{    
     display: flex;
     align-items:center;
 }
@@ -99,7 +99,6 @@ nav span a:hover::after{
 .register-card{
     display: flex;
     justify-content: center;
-    z-index: auto;
 }
 
 main p{
@@ -144,8 +143,7 @@ main .quote{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     z-index: -1;
-  }
-
+}
 
 @keyframes wave {
     0%   {
@@ -162,14 +160,17 @@ main .quote{
 }
 
 
-
-@media (max-width: 800px) {
+@media (max-width: 814px) {
+    body{
+        background: linear-gradient(240deg, rgba(255,0,0,1) 0%, rgba(41,99,255,1) 50%, rgba(81,255,104,1) 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
 
 
 
     .login{
         margin-left: 500px;
     }
-
 
 }

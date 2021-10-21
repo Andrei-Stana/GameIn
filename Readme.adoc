@@ -2,13 +2,6 @@
 
 Game in is a social platform where gamers can meet and enjoy their gaming sessions at the fullest.
 
-== Task
-= Frontend first semester
-1. Index start site till November
-. Background animationen
-2. About us site till november
-3. Explaining our Goal on another site till
-
 == Our idea
 Imagine you want to play something after a long school or work day and you don't have any idea with whom you should play cause your friends are busy or you don't have any.
 
@@ -30,8 +23,36 @@ You'll be able if you pay our premium version monthly to customize your account.
 
 *HTML, CSS, Typescript, Svelte, MariaDB, JWT, Websockets, NodeJS*
 
+= Tasks
+* First semester
+. Index start site till 01.November
+. Background animations till 01. December
+. About us site till 01. november
+. Explaining our Goal on another site till 01. December
+
+* Second semester
+. Make chatting possible 
+. Create parties
+. Make it possible to create and customize an account
+. Create feed system
+
+Second semester deadlines are not fixed until we are done with the first semester ones! But they are aranged in an chronological order.
+
+
+
+= Risks and Migration strategies
+
+The biggest risk will be the lack of time, but we plan to remove some ideas and improve the simpler ones to complement them.
+Another risk will be that the idea won't seem good enough. We want to make it cool by making a good presentation for it and designing an eye catching UI.
+The knowledge of different technologies will be a small problem but if we don't know how to do something we can replace that technology or ask an expert.
+
 = Project Members
 
 Stana Andrei - Backend, Functionability, System planning
 
 Kyaw Htet Htun - Mostly Frontend, Fullstack, Responsive design
+
+Organisation & Technology - Andrei Stana
+
+Design & UX planning - Kyaw Htet Htun
+
