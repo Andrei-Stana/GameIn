@@ -13,6 +13,8 @@
     box-sizing: border-box;
 }
 
+
+
 body{
     color: white;
     overflow: hidden;
@@ -81,7 +83,6 @@ nav span a:hover{
 .register-card{
     display: flex;
     justify-content: center;
-    z-index: auto;
 }
 
 main p{
@@ -126,8 +127,7 @@ main .quote{
     animation-iteration-count: infinite;
     animation-direction: alternate;
     z-index: -1;
-  }
-
+}
 
 @keyframes wave {
     0%   {
@@ -142,7 +142,6 @@ main .quote{
         left:0px; 
         top:0px;}
 }
-
 
 
 @media (max-width: 814px) {
@@ -184,6 +183,5 @@ main .quote{
         margin-top: 20px;
         margin-right: 20px;
     }
-
 
 }
