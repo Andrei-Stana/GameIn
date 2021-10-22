@@ -9,32 +9,46 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&display=swap');
 /*font-family: 'Noto Sans Mono', monospace;*/
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap');
+/*font-family: 'Barlow Semi Condensed', sans-serif;*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     color: white;
-    overflow: hidden;
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x: hidden;
+    
 }
 
+section{
+    min-height: 100vh;
+    width: 100%;
+}
 
 nav{    
     display: flex;
     align-items:center;
+    width: 100%;
+    justify-content:space-between;
 }
 
-.goal, .about{
+.goal, .about, .login{
     margin-left: 100px;
 }
 
 .login{
-    margin-left: 700px;
+    margin-right: 100px;
 }
 
 nav span a{
@@ -80,7 +94,6 @@ nav span a:hover::after{
     align-items: center;
     justify-content: space-around;
     position: absolute;
-    bottom: 0px;
     width: 1000px;
     height: 150px;
     border-radius: 150px 0px 150px 0px;
@@ -129,8 +142,9 @@ main p span:hover{
     box-shadow: 10px 10px 6px 2px #000000;
 }
 
-main .quote{
+.quote{
     color: #ffffff;
+    margin-top: 100px;
 }
 
 .waves svg{
@@ -145,6 +159,78 @@ main .quote{
     z-index: -1;
 }
 
+#section-about{
+    margin-top: 24.5%;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    position: absolute;
+    
+}
+
+.paragraph{
+    color: white;
+    font-family: Red Hat Text;
+    font-size: 1.5em;
+    width: 75%;
+    left: 15%;
+    position: absolute;
+    animation: fadeIn 5s;
+}
+
+.laptop-image{
+    position: absolute;
+    left: 50%;
+    margin-top: 10%;
+    animation: fadeInLaptop 2.5s;
+}
+
+.about-us{
+    color: #FFFFFF;
+    text-align: end;
+    margin-right: 10%;
+    font-size: 3em;
+    font-family: Red Hat Text;
+    opacity: 30%;
+    margin-top: 10%;
+    animation: fadeIn 5s;
+    margin-bottom: 50px;
+}
+
+#section-goal{
+    margin-top: 75%;
+}
+
+.idea-txt, .goal-txt{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 1.5em;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-100px);
+        opacity:0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity:1;
+    }
+}
+
+@keyframes fadeInLaptop {
+    0% {
+        transform: translateX(1000px);
+        opacity:0;
+    }
+    50% {
+        transform: translateX(750px);
+        opacity:0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity:1;
+    }
+}
+
 @keyframes wave {
     0%   {
         left:0px;
@@ -157,20 +243,4 @@ main .quote{
       100% {
         left:0px; 
         top:0px;}
-}
-
-
-@media (max-width: 814px) {
-    body{
-        background: linear-gradient(240deg, rgba(255,0,0,1) 0%, rgba(41,99,255,1) 50%, rgba(81,255,104,1) 100%);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-
-
-
-    .login{
-        margin-left: 500px;
-    }
-
 }
