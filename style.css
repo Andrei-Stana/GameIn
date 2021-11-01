@@ -1,17 +1,23 @@
-/*ToDo
-    Underline animation "About", "Our Goal" and "Login"
-*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 /*font-family: 'Roboto', sans-serif;*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 /*font-family: 'Poppins', sans-serif;*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Raleway:wght@200&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&display=swap');
 /*font-family: 'Noto Sans Mono', monospace;*/
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300&display=swap');
+/*font-family: Red Hat Text;*/
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap');
 /*font-family: 'Barlow Semi Condensed', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+/*font-family: 'Lobster', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Lobster&display=swap');
+/*font-family: 'Cinzel', serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+/*font-family: 'Acme', sans-serif;*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+/*font-family: 'Caveat', cursive;*/
+@import url('https://fonts.googleapis.com/css2?family=Unna&display=swap');
+/*font-family: 'Signika Negative', sans-serif;*/
 *{
     margin: 0;
     padding: 0;
@@ -32,11 +38,12 @@ body{
 }
 
 section{
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
+    position: relative;
 }
 
-nav{    
+nav{
     display: flex;
     align-items:center;
     width: 100%;
@@ -49,6 +56,10 @@ nav{
 
 .login{
     margin-right: 100px;
+}
+
+.logo{
+    margin-left: 5%;
 }
 
 nav span a{
@@ -89,7 +100,6 @@ nav span a:hover::after{
 
 .register{
     background-color: rgba(66, 66, 66, 0.5);
-    margin-bottom: 45px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -102,11 +112,13 @@ nav span a:hover::after{
 
 .register img{
     width: 100px;
+    opacity: 0.8;
     transition: 0.2s;
 }
 
 .register img:hover{
     width: 120px;
+    opacity: 1;
 }
 
 .register-card{
@@ -115,8 +127,7 @@ nav span a:hover::after{
 }
 
 main p{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 20px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 5em;
@@ -128,9 +139,9 @@ main p span{
     width: 120px;
     height: 100px;
     font-weight: 600;
-    box-shadow: 8px 8px 4px 0px #000000;
+    box-shadow: 8px 8px 4px 0px #2c2c2c;
     border-radius: 5px 5px 5px 5px;
-    transition: 200ms;
+    transition: 0.2s;
 }
 
 main p span a:visited{
@@ -139,7 +150,8 @@ main p span a:visited{
 
 main p span:hover{
     letter-spacing: 2px;
-    box-shadow: 10px 10px 6px 2px #000000;
+    box-shadow: 10px 10px 6px 2px #383838;
+    background-image: linear-gradient(to right, #9472f6, #8366f1, #705bec, #5a50e8, #3f46e3);
 }
 
 .quote{
@@ -156,15 +168,10 @@ main p span:hover{
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-    z-index: -1;
 }
 
 #section-about{
-    margin-top: 24.5%;
-    background-color: #000000;
     background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
-    position: absolute;
-    
 }
 
 .paragraph{
@@ -175,6 +182,7 @@ main p span:hover{
     left: 15%;
     position: absolute;
     animation: fadeIn 5s;
+    text-align: justify;
 }
 
 .laptop-image{
@@ -185,29 +193,65 @@ main p span:hover{
 }
 
 .about-us{
+    padding-top: 10%;
     color: #FFFFFF;
     text-align: end;
     margin-right: 10%;
     font-size: 3em;
     font-family: Red Hat Text;
     opacity: 30%;
-    margin-top: 10%;
     animation: fadeIn 5s;
-    margin-bottom: 50px;
 }
 
 #section-goal{
-    margin-top: 75%;
+    background-image: linear-gradient(to right top, #5588d6, #427edd, #3074e3, #1e69e8, #125deb);
 }
 
-.idea-txt, .goal-txt{
-    font-family: 'Barlow Semi Condensed', sans-serif;
-    font-size: 1.5em;
+.imagine{
+    padding-top: 5%;
+    margin-left: 10%;
+    font-size: 5em;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 5px;
+    animation: fadeIn 2s;
+}
+
+.a-place{
+    padding-top: 2%;
+    margin-left: 10%;
+    font-size: 4em;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 10px;
+    animation: fadeInLaptop 2s;
+}
+
+.idea-txt{
+    text-align: justify;
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 1.8em;
+    width: 75%;
+    margin-left: 10%;
+    margin-top: 3%;
+    animation: opacity 8s;
+}
+
+.goal-txt{
+    text-align: justify;
+    font-family: 'Caveat', cursive;
+    font-size: 2.5em;
+    width: 75%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.pop-out{
+    font-family: 'Acme', sans-serif;
+    font-size: 1.2em;
 }
 
 @keyframes fadeIn {
     0% {
-        transform: translateY(-100px);
+        transform: translateY(-500px);
         opacity:0;
     }
     100% {
@@ -227,6 +271,18 @@ main p span:hover{
     }
     100% {
         transform: translateX(0px);
+        opacity:1;
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity:0;
+    }
+    50% {
+        opacity:0.8;
+    }
+    100% {
         opacity:1;
     }
 }
