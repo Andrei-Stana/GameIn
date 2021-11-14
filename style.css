@@ -18,6 +18,11 @@
 /*font-family: 'Caveat', cursive;*/
 @import url('https://fonts.googleapis.com/css2?family=Unna&display=swap');
 /*font-family: 'Signika Negative', sans-serif;*/
+
+/*Todo
+    Add a bar to NAVBAR
+    Fix wave
+*/
 *{
     margin: 0;
     padding: 0;
@@ -34,20 +39,42 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow-x: hidden;
-    
 }
 
 section{
     height: 100vh;
     width: 100%;
-    position: relative;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #66b1ee;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(96, 30, 250);
+    transition: 200ms;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(57, 243, 97);
+}
+  
 nav{
     display: flex;
     align-items:center;
     width: 100%;
     justify-content:space-between;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    background-image: linear-gradient(to right top, #4080e0, #009ef2, #00b9f9, #00d2f8, #21e9f2);
+    box-shadow: 5px 5px 15px 5px #000000;
+    border-radius: 0px 0px 15px 15px;
+
 }
 
 .goal, .about, .login{
@@ -88,7 +115,7 @@ nav span a:hover{
     letter-spacing: 1px;
 }
 
-nav span a:hover::after{
+nav span a:hover:after{
     content: "";
     background-color: white;
     width: 100%;
@@ -99,6 +126,7 @@ nav span a:hover::after{
 }
 
 .register{
+    margin-top: 12%;
     background-color: rgba(66, 66, 66, 0.5);
     display: flex;
     align-items: center;
@@ -156,11 +184,11 @@ main p span:hover{
 
 .quote{
     color: #ffffff;
-    margin-top: 100px;
+    margin-top: 10%;
 }
 
 .waves svg{
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -204,11 +232,12 @@ main p span:hover{
 }
 
 #section-goal{
-    background-image: linear-gradient(to right top, #5588d6, #427edd, #3074e3, #1e69e8, #125deb);
+    background-image: linear-gradient(to right top, #50ed56, #4ef153, #4cf64f, #49fa4b, #47fe47);
+    height: 120vh;
 }
 
 .imagine{
-    padding-top: 5%;
+    padding-top: 10%;
     margin-left: 10%;
     font-size: 5em;
     font-family: 'Lobster', cursive;
@@ -217,7 +246,7 @@ main p span:hover{
 }
 
 .a-place{
-    padding-top: 2%;
+    padding-top: 1%;
     margin-left: 10%;
     font-size: 4em;
     font-family: 'Cinzel', serif;
@@ -231,7 +260,7 @@ main p span:hover{
     font-size: 1.8em;
     width: 75%;
     margin-left: 10%;
-    margin-top: 3%;
+    margin-top: 2%;
     animation: opacity 8s;
 }
 
@@ -241,7 +270,7 @@ main p span:hover{
     font-size: 2.5em;
     width: 75%;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .pop-out{
@@ -251,7 +280,7 @@ main p span:hover{
 
 @keyframes fadeIn {
     0% {
-        transform: translateY(-500px);
+        transform: translateY(-150px);
         opacity:0;
     }
     100% {
