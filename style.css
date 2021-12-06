@@ -38,13 +38,20 @@ body{
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    overflow-x: hidden;
 }
 
+
+
 section{
+    width: 100vw;
     height: 100vh;
-    width: 100%;
 }
+
+main{
+    width: 100vw;
+    height: 100vh;
+}
+
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -70,11 +77,8 @@ nav{
     justify-content:space-between;
     position: fixed;
     z-index: 100;
+    background-color: rgba(0,0,0,.5);
     top: 0;
-    background-image: linear-gradient(to right top, #4080e0, #009ef2, #00b9f9, #00d2f8, #21e9f2);
-    box-shadow: 5px 5px 15px 5px #000000;
-    border-radius: 0px 0px 15px 15px;
-
 }
 
 .goal, .about, .login{
@@ -126,7 +130,7 @@ nav span a:hover:after{
 }
 
 .register{
-    margin-top: 12%;
+    margin-top: 5%;
     background-color: rgba(66, 66, 66, 0.5);
     display: flex;
     align-items: center;
@@ -136,6 +140,7 @@ nav span a:hover:after{
     height: 150px;
     border-radius: 150px 0px 150px 0px;
     filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.25));
+    z-index: auto;
 }
 
 .register img{
@@ -155,7 +160,7 @@ nav span a:hover:after{
 }
 
 main p{
-    padding: 20px;
+    padding-top: 170px;
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 5em;
@@ -184,7 +189,6 @@ main p span:hover{
 
 .quote{
     color: #ffffff;
-    margin-top: 10%;
 }
 
 .waves svg{
@@ -196,6 +200,15 @@ main p span:hover{
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    z-index: 0;
+}
+
+section#section-main {
+    height: 70vh;
+}
+
+.waves{
+    height: 10vh;
 }
 
 #section-about{
@@ -211,6 +224,7 @@ main p span:hover{
     position: absolute;
     animation: fadeIn 5s;
     text-align: justify;
+    height: 100%;
 }
 
 .laptop-image{
@@ -233,7 +247,7 @@ main p span:hover{
 
 #section-goal{
     background-image: linear-gradient(to right top, #50ed56, #4ef153, #4cf64f, #49fa4b, #47fe47);
-    height: 120vh;
+    height: 110vh;
 }
 
 .imagine{
