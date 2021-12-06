@@ -31,6 +31,7 @@
 
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body{
@@ -39,8 +40,6 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
-
 
 section{
     width: 100vw;
@@ -52,22 +51,21 @@ main{
     height: 100vh;
 }
 
-
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #66b1ee;
+    background: #303030;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(96, 30, 250);
-    transition: 200ms;
+    border-radius: 10px;
+    background: #505050;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(57, 243, 97);
+    background: #707070;
 }
   
 nav{
