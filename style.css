@@ -191,11 +191,10 @@ main p span:hover{
 
 .waves svg{
     position: relative;
-    width: 100%;
     bottom: 0;
     left: 0;
     animation-name: move-left;
-    animation-duration: 4s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     z-index: 0;
@@ -206,6 +205,7 @@ section#section-main {
 }
 
 .waves{
+    width: 100%;
     height: 10vh;
 }
 
@@ -244,8 +244,8 @@ section#section-main {
 }
 
 #section-goal{
-    background-image: linear-gradient(to right top, #50ed56, #4ef153, #4cf64f, #49fa4b, #47fe47);
-    height: 110vh;
+    background-color: #C9D7F8;
+    height: 125vh;
 }
 
 .imagine{
@@ -340,4 +340,50 @@ section#section-main {
       100% {
         left:0px; 
         top:0px;}
+}
+
+@media screen and (max-width: 1352px) {
+    nav{
+        height: auto;
+    }
+
+    .register{
+        width: 700px;
+        height: 100px;
+    }
+
+    .register img{
+        width: 75px;
+    }
+
+    .register img:hover{
+        width: 80px;
+    }
+
+    main p{
+        padding-top: 200px;
+        font-size: 3em;
+    }
+
+    .laptop-image{
+        left: 50%;
+        margin-top: 20%;
+        width: 500px;
+    }
+
+    .about-us{
+        padding-top: 10%;
+        margin-right: 11%;
+        font-size: 2em;
+    }
+
+    .paragraph{
+        margin-top: 50px;
+        font-size: 1.5em;
+        width: 75%;
+        left: 15%;
+        height: 100%;
+    }
+
+    
 }
