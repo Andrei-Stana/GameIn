@@ -16,7 +16,7 @@
 
 <section id="section-main">
     <div class="d-flex felx-flow align-items-center h-100">
-        <p class="display-6 mb-5">
+        <p class="display-6">
             Welcome to GameIn a platform where
             GAMERS can find their true love.
         </p>
