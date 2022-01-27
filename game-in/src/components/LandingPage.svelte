@@ -1,3 +1,7 @@
+<script>
+    import Link from "svelte-navigator/src/Link.svelte";
+</script>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#section-main">Navbar</a>
@@ -8,7 +12,7 @@
         <div class="navbar-nav">
           <a class="nav-link fs-5 active" href="#section-about">About</a>
           <a class="nav-link fs-5 active" href="#section-goal">Goal</a>
-          <a class="nav-link fs-5 active" href="#section-goal">Login</a>
+          <Link class="nav-link fs-5 active" to="/login">Base</Link>
         </div>
       </div>
     </div>
