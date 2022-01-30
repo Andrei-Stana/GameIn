@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#section-main">Navbar</a>
+      <a class="navbar-brand" href="#section-main">GameIn</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,20 +19,12 @@
 </nav>
 
 <section id="section-main">
-    <div class="d-flex felx-flow align-items-center h-100">
-        <p class="display-6 mb-5">
-            Welcome to GameIn a platform where
-            GAMERS can find their true love.
-        </p>
-        <hr>
-        <div class="register-card w-50">
-            <div class="register">
-                <img src="https://img.icons8.com/color/150/000000/google-logo.png" alt="Google Logo"/>
-                <img src="https://img.icons8.com/ios-filled/150/000000/steam.png" alt="Steam Logo">
-                <img src="https://img.icons8.com/ios/150/000000/epic-games.png" alt="Epicgames Logo">
-            </div>
-        </div>
-    </div>
+    <div class="heart-shape hposi-1"></div>
+    <p class="display-6 position-absolute txt-top start-50 translate-middle w-50">
+        Welcome to <u>GameIn</u> a platform where <u>GAMERS</u> can find their <u>true love</u>.
+    </p>
+    <button class="btn btn-primary btn-lg position-absolute btn-top start-50 translate-middle fs-3 rounded-pill" style="height: 8vh; width: 15vw">Get Started!</button>
+
 </section>
 
 
@@ -110,6 +102,8 @@
 </section>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+    /*font-family: 'Arvo', serif;*/
 nav{
     width: 100%;
     position: fixed;
@@ -117,35 +111,10 @@ nav{
     line-height: 2.5;
     z-index: 10;
 }
-.felx-flow{
-    flex-flow: wrap;
-}
-
-.register{
-    background-color: rgba(66, 66, 66, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 150px 0px 150px 0px;
-    filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.25));
-    z-index: auto;
-}
-
-.register img{
-    width: 100px;
-    opacity: 0.8;
-    transition: 0.2s;
-}
-
-.register img:hover{
-    width: 120px;
-    opacity: 1;
-    cursor: pointer;
-}
 
 #section-main {
     height: 100vh;
-    background-color: #434343;
+    background-color: #e98686;
 }
 
 #section-about{
@@ -156,6 +125,15 @@ nav{
 #section-goal{
     background-color: #C9D7F8;
     height: 100vh;
+}
+
+.txt-top{
+    top: 45%;
+    font-family: 'Arvo', serif;
+}
+
+.btn-top{
+    top: 65%;
 }
 
 .col {
@@ -183,77 +161,33 @@ nav{
     background-color: #ffffff;
 }
 
-@keyframes fadeIn {
-    0% {
-        transform: translateY(-150px);
-        opacity:0;
-    }
-    100% {
-        transform: translateY(0px);
-        opacity:1;
-    }
+.hposi-1{
+    top: 35%;
+    left: 30%;
 }
-
-@keyframes fadeInLaptop {
-    0% {
-        transform: translateX(1000px);
-        opacity:0;
+    .heart-shape{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        transform: rotate(55deg);
+        background-color: #f48d8d;
     }
-    50% {
-        transform: translateX(750px);
-        opacity:0;
+    .heart-shape:before,
+    .heart-shape:after{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        content: '';
+        border-radius: 50%;
+        background-color: #f48d8d;
     }
-    100% {
-        transform: translateX(0px);
-        opacity:1;
+    .heart-shape:before{
+        bottom: 0px;
+        left: -100px;
     }
-}
-
-@keyframes opacity {
-    0% {
-        opacity:0;
+    .heart-shape:after{
+        top: -100px;
+        right: 0px;
     }
-    50% {
-        opacity:0.8;
-    }
-    100% {
-        opacity:1;
-    }
-}
-
-@keyframes wave {
-    0%   {
-        left:0px;
-        top:0px;}
-      
-      50%  {
-        left:-2000px;
-        top:200px;}
-      
-      100% {
-        left:0px; 
-        top:0px;}
-}
-
-@media screen and (max-width: 1352px) {
-    nav{
-        height: auto;
-    }
-
-    .register{
-        width: 700px;
-        height: 100px;
-    }
-
-    .register img{
-        width: 75px;
-    }
-
-    .register img:hover{
-        width: 80px;
-    }
-
-    
-}
 
 </style>
