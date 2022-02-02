@@ -4,7 +4,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#section-main">Navbar</a>
+      <a class="navbar-brand" href="#section-main">GameIn</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -19,20 +19,37 @@
 </nav>
 
 <section id="section-main">
-    <div class="d-flex felx-flow align-items-center h-100">
-        <p class="display-6">
-            Welcome to GameIn a platform where
-            GAMERS can find their true love.
-        </p>
-        <hr>
-        <div class="register-card w-50">
-            <div class="register">
-                <img src="https://img.icons8.com/color/150/000000/google-logo.png" alt="Google Logo"/>
-                <img src="https://img.icons8.com/ios-filled/150/000000/steam.png" alt="Steam Logo">
-                <img src="https://img.icons8.com/ios/150/000000/epic-games.png" alt="Epicgames Logo">
-            </div>
-        </div>
+    <div class="heart-shape hposi-1"></div>
+    <div class="controller-shape">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 58.189 58.189" style="enable-background:new 0 0 58.189 58.189;" xml:space="preserve">
+        <path style="fill:#38454F;" d="M29.095,39.268h9.446c1.701,0,3.346,0.609,4.638,1.716l9.128,7.828
+            c0.611,0.524,1.505,0.614,2.184,0.183c9.496-6.01-2.022-29.728-4.305-34.034c-0.242-0.457-0.641-2.936-1.126-3.113l-7.676-2.791
+            c-0.673-0.245-1.422-0.155-2.017,0.242c0,0-2.164,1.383-2.649,1.383h-8.425h-6.549c-0.485,0-2.921-1.383-2.921-1.383
+            c-0.596-0.397-1.345-0.487-2.017-0.242L9.13,11.848c-0.486,0.177-0.884,2.656-1.126,3.113C5.721,19.267-5.797,42.985,3.699,48.995
+            c0.68,0.43,1.574,0.34,2.184-0.183l9.128-7.828c1.292-1.107,2.937-1.716,4.638-1.716H29.095z"/>
+        <circle style="fill:#546A79;" cx="36.786" cy="30.268" r="4"/>
+        <circle style="fill:#546A79;" cx="13.786" cy="20.268" r="4"/>
+        <circle style="fill:#EBBA16;" cx="43.786" cy="16.268" r="2"/>
+        <circle style="fill:#7383BF;" cx="39.786" cy="20.268" r="2"/>
+        <circle style="fill:#D75A4A;" cx="47.786" cy="20.268" r="2"/>
+        <circle style="fill:#61B872;" cx="43.786" cy="24.268" r="2"/>
+        <path style="fill:#AFB6BB;" d="M31.786,11.712c0-0.192-0.019-0.38-0.054-0.561c-0.035-0.181-0.111-0.338-0.215-0.469
+            c-1.171,0-2.08,0-2.479,0c-0.085,0.007-0.165,0.03-0.251,0.03c-0.087,0-0.167-0.022-0.251-0.03c-0.013,0-0.242,0-0.242,0h-2.247
+            c-0.088,0.114-0.158,0.245-0.192,0.4c-0.087,0.398-0.094,0.827,0,1.271c0.248,1.17,1.225,2.113,2.404,2.314
+            C30.148,14.989,31.786,13.542,31.786,11.712z"/>
+        <path style="fill:#546A79;" d="M27.286,27.921H24v-3.286c0-0.395-0.32-0.714-0.714-0.714h-2.571c-0.395,0-0.714,0.32-0.714,0.714
+        v3.286h-3.286c-0.395,0-0.714,0.32-0.714,0.714v2.571c0,0.395,0.32,0.714,0.714,0.714H20v3.286c0,0.395,0.32,0.714,0.714,0.714
+        h2.571c0.395,0,0.714-0.32,0.714-0.714v-3.286h3.286c0.395,0,0.714-0.32,0.714-0.714v-2.571C28,28.241,27.68,27.921,27.286,27.921z"
+        />
+        <g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+        </svg>
     </div>
+    <p class="display-6 position-absolute txt-top start-50 translate-middle w-50">
+        Welcome to <u>GameIn</u> a platform where <u>GAMERS</u> can find their <u>true love</u>.
+    </p>
+    <button class="btn btn-primary btn-lg position-absolute btn-top start-50 translate-middle display-2 rounded-pill" style="height: 8vh; width: 15vw">Get Started!</button>
+
 </section>
 
 
@@ -110,6 +127,8 @@
 </section>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+/*font-family: 'Arvo', serif;*/
 nav{
     width: 100%;
     position: fixed;
@@ -117,35 +136,10 @@ nav{
     line-height: 2.5;
     z-index: 10;
 }
-.felx-flow{
-    flex-flow: wrap;
-}
-
-.register{
-    background-color: rgba(66, 66, 66, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 150px 0px 150px 0px;
-    filter: drop-shadow(20px 20px 10px rgba(0, 0, 0, 0.25));
-    z-index: auto;
-}
-
-.register img{
-    width: 100px;
-    opacity: 0.8;
-    transition: 0.2s;
-}
-
-.register img:hover{
-    width: 120px;
-    opacity: 1;
-    cursor: pointer;
-}
 
 #section-main {
     height: 100vh;
-    background-color: #434343;
+    background-color: #bcffb6;
 }
 
 #section-about{
@@ -156,6 +150,15 @@ nav{
 #section-goal{
     background-color: #C9D7F8;
     height: 100vh;
+}
+
+.txt-top{
+    top: 45%;
+    font-family: 'Arvo', serif;
+}
+
+.btn-top{
+    top: 65%;
 }
 
 .col {
@@ -183,77 +186,42 @@ nav{
     background-color: #ffffff;
 }
 
-@keyframes fadeIn {
-    0% {
-        transform: translateY(-150px);
-        opacity:0;
-    }
-    100% {
-        transform: translateY(0px);
-        opacity:1;
-    }
+.hposi-1{
+    top: 35%;
+    left: 60%;
 }
 
-@keyframes fadeInLaptop {
-    0% {
-        transform: translateX(1000px);
-        opacity:0;
-    }
-    50% {
-        transform: translateX(750px);
-        opacity:0;
-    }
-    100% {
-        transform: translateX(0px);
-        opacity:1;
-    }
+.controller-shape{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width : 20%;
+    transform: rotate(-40deg);
+    opacity: 0.3;
 }
-
-@keyframes opacity {
-    0% {
-        opacity:0;
-    }
-    50% {
-        opacity:0.8;
-    }
-    100% {
-        opacity:1;
-    }
+.heart-shape{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform: rotate(75deg);
+    background-color: #ffa9a9;
 }
-
-@keyframes wave {
-    0%   {
-        left:0px;
-        top:0px;}
-      
-      50%  {
-        left:-2000px;
-        top:200px;}
-      
-      100% {
-        left:0px; 
-        top:0px;}
+.heart-shape:before,
+.heart-shape:after{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    content: '';
+    border-radius: 50%;
+    background-color: #ffa9a9;
 }
-
-@media screen and (max-width: 1352px) {
-    nav{
-        height: auto;
-    }
-
-    .register{
-        width: 700px;
-        height: 100px;
-    }
-
-    .register img{
-        width: 75px;
-    }
-
-    .register img:hover{
-        width: 80px;
-    }
-
-    
+.heart-shape:before{
+    bottom: 0px;
+    left: -100px;
+}
+.heart-shape:after{
+    top: -100px;
+    right: 0px;
 }
 
 </style>
