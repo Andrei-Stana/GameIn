@@ -11,7 +11,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse nav-item-align" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link fs-5 active" href="#section-about">About</a>
           <a class="nav-link fs-5 active" href="#section-goal">Goal</a>
@@ -105,7 +105,7 @@
         </svg>
     </div>
     <p class="display-6 position-absolute txt-top start-50 translate-middle w-50">
-        Welcome to <u>GameIn</u> a platform where mark <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">GAMERS</u> can find their <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">true love</u>.
+        Welcome to <u>GameIn</u> a platform where <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">GAMERS</u> can find their <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">true love</u>.
     </p>
     <button class="btn btn-primary btn-lg position-absolute btn-top start-50 translate-middle display-2 rounded-pill" style="height: 8vh; width: 15vw">Get Started!</button>
 </section>
@@ -119,11 +119,11 @@
             </div>
             <div class="card-body text-white">
                 <h1 class="display-6 text-center ">Kyaw Htet Htun</h1>
-                <h1 class="fs-3 text-center ">Mostly Frontend / Backend</h1>
+                <h1 class="fs-3 text-center ">Fullstack</h1>
                 <div class="sperate-line"></div>
-                <p class="fs-5">I am 16 years old and I am attending an informatic school.
+                <p class="fs-5">I am 17 years old and I am attending an informatic school.
                     <br>This is a main project for me.
-                    <br>I am a work mostly on the frontend.
+                    <br>I work mostly on the frontend.
                 </p>
             </div>
             <div class="card-footer lead text-white">
@@ -172,14 +172,17 @@
 </section>
 
 <section id="section-goal">
-    <p class="display-1 text-center">Freedom</p>
-    <div class="text-center display-3 ">
-
-        <p class="mt-5">A PLACE where you have <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">freedom</u>.</p>
-        <p class="mt-5">A PLACE where you can feel <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">home</u>.</p>
-        <p class="mt-5">A PLACE where you can meet the <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">right people</u>.</p>
-        <p class="mt-5">A PLACE where you can join <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">everyone</u>.</p>
-        <p class="mt-5">A PLACE where you can be your <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">true self</u>.</p>
+    <p class="display-1 text-center" style="padding-top: 4rem">Freedom</p>
+    <div class="text-center display-4 card container">
+        <p class="mt-3">A PLACE where you have <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">freedom</u>.</p>
+        <div class="sperate-line"></div>
+        <p class="mt-3">A PLACE where you can feel <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">home</u>.</p>
+        <div class="sperate-line"></div>
+        <p class="mt-3">A PLACE where you can meet the <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">right people</u>.</p>
+        <div class="sperate-line"></div>
+        <p class="mt-3">A PLACE where you can join <u class="bg-danger bg-gradient bg-opacity-50 rounded p-1">everyone</u>.</p>
+        <div class="sperate-line"></div>
+        <p class="mt-3">A PLACE where you can be your <u class="bg-primary bg-gradient bg-opacity-50 rounded p-1">true self</u>.</p>
     </div>
 </section>
 
@@ -196,19 +199,19 @@ nav{
 
 #section-main {
     height: 100vh;
-    background: linear-gradient(#95d5b2, #74c69d);
+    background: linear-gradient(#D4CDF4, #aaa4dc);
 }
 
 
 #section-about{
     height: 100vh;
-    background: linear-gradient(#74c69d, #52b788);
+    background: linear-gradient(#aaa4dc, #88ecc2);
 
 }
 
 #section-goal{
-    background-color: #52b788;
-    height: 90vh;
+    background: linear-gradient(#88ecc2, #D4CDF4);
+    height: 100vh;
 }
 
 .txt-top{
@@ -245,6 +248,10 @@ nav{
     background-color: #ffffff;
 }
 
+.nav-item-align{
+    display: flex;
+    justify-content: end;
+}
 
 .controller-shape{
     position: absolute;
@@ -262,6 +269,25 @@ nav{
     width : 250px;
     transform: rotate(40deg);
     opacity: 0.2;
+}
+
+@media only screen and (max-width: 992px) {
+    .nav-item-align{
+        display: flex;
+        justify-content: start;
+    }
+
+    .controller-shape{
+        top: 35%;
+        left: 20%;
+        width : 150px;
+    }
+
+    .console-shape{
+        top: 35%;
+        right: 20%;
+        width : 150px;
+    }
 }
 
 </style>
