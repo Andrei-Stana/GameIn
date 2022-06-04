@@ -1,11 +1,20 @@
 <script>
     import {auth, googleProvider} from "$lib/firebase.ts";
+    import {goto} from "$app/navigation";
 
+    let email = "", password = "";
     const SignUpGoogle = async () =>{
-        console.log("dw")
         const res = await auth.signInWithPopup(googleProvider)
         const user = res.user;
+        localStorage.setItem("username", res.user.displayName)
+        localStorage.setItem("email", res.user.email)
+        localStorage.setItem("photoUrl", res.user.email)
         console.log(user)
+        await goto("/auth/login")
+    }
+
+    const SignUpWithMail = async () =>{
+        const creds = await auth.createUserWithEmailAndPassword(email, password);
     }
 </script>
 
@@ -25,13 +34,13 @@
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
                     <h5 class="card-title text-center mb-5 fw-light display-3">Sign Up</h5>
-                    <form>
+                    <form on:submit|preventDefault={SignUpWithMail}>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input required bind:value={email} type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input required type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Password</label>
                         </div>
 
