@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {auth, googleProvider} from "$lib/firebase.ts";
     import {goto} from "$app/navigation";
 
@@ -6,17 +6,18 @@
     const SignUpGoogle = async () =>{
         const res = await auth.signInWithPopup(googleProvider)
         const user = res.user;
+        localStorage.setItem("user", JSON.stringify(user))
         localStorage.setItem("username", res.user.displayName)
-        localStorage.setItem("email", res.user.email)
         localStorage.setItem("photoUrl", res.user.email)
         console.log(user)
-        await goto("/auth/login")
+        await goto("../main")
     }
 
     const SignUpWithMail = async () =>{
         const creds = await auth.createUserWithEmailAndPassword(email, password);
     }
 </script>
+
 
 <svelte:head>
     <style>
