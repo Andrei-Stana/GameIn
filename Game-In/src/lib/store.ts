@@ -1,15 +1,17 @@
 import { goto } from "$app/navigation";
-
-//export const email = writable(localStorage.getItem("email") || "EMAIL")
-export const userName = localStorage.getItem("username") || "USERNAME"
-export const photoUrl = localStorage.getItem("photoUrl") || "PHOTO"
-
-export const user = localStorage.getItem("user") || undefined;
+import {io} from "socket.io-client";
+import Peer from "simple-peer";
 
 export function logOut(){
     localStorage.setItem("user", undefined)
     localStorage.setItem("username", undefined)
+    localStorage.setItem("email", undefined)
+    localStorage.setItem("photoUrl", undefined)
+    localStorage.setItem("uid", undefined)
+
     goto("/auth/signup")
 }
+
+const socket = io("http://localhost:5000/");
 
 

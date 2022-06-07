@@ -1,19 +1,7 @@
-
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="Images/logo.svg" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="/auth/login">Login</a>
-                <a class="nav-link" href="/auth/signup">SignUp</a>
-            </div>
-        </div>
-    </div>
-</nav>
+<script>
+    import Navbar from "../components/Navbar.svelte";
+</script>
+<Navbar/>
 <main>
     <div class="container-fluid d-flex vh-100 bg-primary" id="main-section">
         <div class="row justify-content-center align-self-center col-3" id="title">
