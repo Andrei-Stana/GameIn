@@ -1,6 +1,6 @@
 import { goto } from "$app/navigation";
-import {io} from "socket.io-client";
-import Peer from "simple-peer";
+//import {io} from "socket.io-client";
+//import Peer from "simple-peer";
 
 export function logOut(){
     localStorage.setItem("user", undefined)
@@ -12,6 +12,6 @@ export function logOut(){
     goto("/auth/signup")
 }
 
-const socket = io("http://localhost:5000/");
+//const socket = io("http://localhost:5000/");
 
 

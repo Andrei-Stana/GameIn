@@ -14,3 +14,5 @@
     export let uid;
     console.log(uid)
 </script>
+
+<h1>Your ROOM ID: {uid}</h1>
