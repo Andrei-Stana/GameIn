@@ -21,7 +21,7 @@ You'll be able if you pay our premium version monthly to customize your account.
 
 = Technologies we want to use
 
-*HTML, CSS, Typescript, Svelte, MariaDB, JWT, Websockets, NodeJS*
+*HTML, CSS, Typescript, Svelte, Firebase,  Websockets, NodeJS*
 
 = Tasks
 * First semester
