@@ -6,7 +6,7 @@
 	import { goto } from '$app/navigation';
 
 
-	let userName = "", email = "", photoUrl = "", uid = "";
+	export let userName = "", email = "", photoUrl = "", uid = "";
 	let showUid = false;
 
 	export async function addData() {
