@@ -34,6 +34,10 @@
 		await goto("/rooms/"+ uid);
 	}
 
+	async function CreateChatRoom(){
+		await goto("/rooms/"+ uid);
+	}
+
 	addData();
 </script>
 
@@ -77,6 +81,10 @@
 	<div class="text-white text-center d-flex justify-content-center">
 		<p class="display-6 ">Create Room:</p>
 		<button class="btn btn-primary btn-lg" on:click={CreateRoom}>Create</button>
+	</div>
+	<div class="text-white text-center d-flex justify-content-center">
+		<p class="display-6 ">Create Chatroom:</p>
+		<button class="btn btn-primary btn-lg" on:click={CreateChatRoom}>Create</button>
 	</div>
 </div>
 
