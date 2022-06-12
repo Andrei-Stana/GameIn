@@ -1,15 +1,4 @@
 <script context="module" lang="ts">
-    import {db} from "$lib/firebase"
-    import { doc, addDoc, collection, serverTimestamp, query, orderBy} from 'firebase/firestore';
-    import { collectionData } from 'rxfire/firestore';
-    import { startWith } from 'rxjs/operators';
-    import { onMount } from 'svelte';
-
-
-    let userName = "";
-
-
-
     export async function load({params}){
         const uid = params.uid;
 
@@ -19,46 +8,49 @@
             }
         }
     }
-    const docRef = collection(db, 'room1');
-
-    
-    const AddData = async(e) =>{
-        e.preventDefault();
-        
-
-    
-        await addDoc(docRef, {
-            user: userName,
-            message: (<HTMLInputElement>document.getElementById("chatinput")).value,
-            created: serverTimestamp()
-        })
-    }
-
-
 </script>
 
 <script>
+    import {AddMessage} from "../../lib/firebase.ts";
+    import {db} from "../../lib/firebase.ts";
+    import { collection, onSnapshot } from "firebase/firestore";
+    import Message from "../../components/Message.svelte";
+    import {onMount} from "svelte";
 
-    onMount(() => {
-		userName = localStorage.getItem("username");
-    });
-    const q = query(collection(db, 'room1'), orderBy('created'))
-    
-    const messages = collectionData(q, 'message').pipe(startWith([]));
     export let uid;
-    console.log(uid)
+
+    let message = "";
+    let msgs = [];
+    let username = "";
+
+    onMount(()=>{
+        username = localStorage.getItem("username")
+    })
+
+    const HandleSubmit = async () =>{
+        await AddMessage(uid, message, Date.now(), username);
+        message = "";
+    }
+
+    onSnapshot(collection(db, uid) ,(snapShot) =>{
+        msgs = [];
+        msgs = snapShot.docs.map(doc => doc.data())
+        console.log(msgs)
+    })
+
 </script>
 
-<h1>Your ROOM ID: {uid}</h1>
+<h1 class="text-center display-5">ROOM ID: {uid}</h1>
 
-<form on:submit={AddData}>
-    <input type="text" id="chatinput"><br><br>
-    <button type="submit">Send</button>
-
+<form on:submit|preventDefault={HandleSubmit}>
+    <div class="input-group position-absolute bottom-0">
+        <input bind:value={message} type="text" class="form-control" placeholder="Message {uid}">
+        <button class="btn btn-outline-primary" type="submit" >Button</button>
+    </div>
 </form>
 
-<ul>
-	{#each $messages as message}
-        <p>{message.user}: {message.message}</p>
-	{/each}
-</ul>
+<div class="m-5">
+    {#each msgs as msg}
+        <Message message={msg.message} time={msg.time} username={msg.username}/>
+    {/each}
+</div>

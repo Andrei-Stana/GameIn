@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { auth, googleProvider } from '$lib/firebase.ts';
 	import { goto } from '$app/navigation';
+	import {AddAccount} from "$lib/firebase.ts";
 
 	let email = '',
 		password = '';
@@ -8,11 +9,12 @@
 	const SignUpGoogle = async () => {
 		const res = await auth.signInWithPopup(googleProvider);
 		const user = res.user;
-		localStorage.setItem('username', res.user.displayName);
-		localStorage.setItem('email', res.user.email);
-		localStorage.setItem('photoUrl', res.user.photoURL);
-		localStorage.setItem('uid', res.user.uid);
+		localStorage.setItem('username', user.displayName);
+		localStorage.setItem('email', user.email);
+		localStorage.setItem('photoUrl', user.photoURL);
+		localStorage.setItem('uid', user.uid);
 
+		await AddAccount(user.uid, user.email, user.photoURL, user.displayName);
 		console.log(user);
 		await goto('../profile');
 	};

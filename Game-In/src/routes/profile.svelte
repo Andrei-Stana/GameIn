@@ -31,7 +31,7 @@
 	}
 
 	const CreateRoom = async () =>{
-		await goto("/rooms/"+ uid);
+		await goto("http://localhost:5000/"+uid+"/"+1);
 	}
 
 	async function CreateChatRoom(){

@@ -8,12 +8,10 @@
     const SignUpGoogle = async () => {
         const res = await auth.signInWithPopup(googleProvider);
         const user = res.user;
-        localStorage.setItem('username', res.user.displayName);
-        localStorage.setItem('email', res.user.email);
-        localStorage.setItem('photoUrl', res.user.photoURL);
-        localStorage.setItem('uid', res.user.uid);
-
-        console.log(user);
+        localStorage.setItem('username', user.displayName);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('photoUrl', user.photoURL);
+        localStorage.setItem('uid', user.uid);
         await goto('../profile');
     };
 </script>
