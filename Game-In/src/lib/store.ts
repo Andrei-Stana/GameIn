@@ -1,12 +1,14 @@
 import { goto } from "$app/navigation";
-
-export function logOut(){
+import {auth} from "./firebase";
+export async function logOut(){
+    let promi = await auth.signOut();
+    console.log(auth)
     localStorage.setItem("user", undefined)
     localStorage.setItem("username", undefined)
     localStorage.setItem("email", undefined)
     localStorage.setItem("photoUrl", undefined)
     localStorage.setItem("uid", undefined)
-    goto("/auth/signup")
+    await goto("/auth/signin")
 }
 
 

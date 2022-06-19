@@ -1,11 +1,14 @@
 <script lang="ts">
     import { auth, googleProvider } from '$lib/firebase.ts';
     import { goto } from '$app/navigation';
+    import Navbar from "../../components/Navbar.svelte";
 
     let email = '',
         password = '';
 
-    const SignUpGoogle = async () => {
+    $: errCode = null;
+
+    const SignInGoogle = async () => {
         const res = await auth.signInWithPopup(googleProvider);
         const user = res.user;
         localStorage.setItem('username', user.displayName);
@@ -14,24 +17,47 @@
         localStorage.setItem('uid', user.uid);
         await goto('../profile');
     };
+
+    const SignInManual = async () =>{
+        try {
+            const res = await auth.signInWithEmailAndPassword(email, password)
+            const user = res.user;
+            localStorage.setItem('username', user.displayName);
+            localStorage.setItem('email', user.email);
+            localStorage.setItem('photoUrl', user.photoURL);
+            localStorage.setItem('uid', user.uid);
+            await goto("../profile");
+        }catch (e){
+            errCode = e.code;
+        }
+    }
 </script>
 
 <svelte:head>
     <style>
         body {
-            background: #23272a;
+            background: linear-gradient(90deg, hsla(258, 100%, 35%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
         }
     </style>
 
-    <title>SignIn</title>
+    <title>GameIn · Sign In</title>
 </svelte:head>
-<div class="container">
+<Navbar>
+    <a class="nav-link mx-2" href="/">Home</a>
+    <a class="nav-link mx-2 active" href="/auth/signin">Sign In</a>
+    <a class="nav-link mx-2" href="/auth/signup">Sign Up</a>
+</Navbar>
+<div class="container mt-5">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light display-3">Sign In</h5>
-                    <form>
+                    <h5 class="text-center display-4 sign-txt">Welcome Back!</h5>
+                    <h5 class="card-title text-center mb-5 fw-light display-3 sign-txt">Sign In</h5>
+                    <form on:submit|preventDefault={SignInManual}>
+                        {#if errCode}
+                            <div class="alert alert-danger" role="alert">{errCode} </div>
+                        {/if}
                         <div class="form-floating mb-3">
                             <input
                                     required
@@ -45,6 +71,7 @@
                         </div>
                         <div class="form-floating mb-3">
                             <input
+                                    bind:value={password}
                                     required
                                     type="password"
                                     class="form-control"
@@ -68,7 +95,7 @@
                         <hr class="my-4" />
                     </form>
                     <div class="d-grid mb-2">
-                        <button on:click={SignUpGoogle} class="btn btn-google btn-login text-uppercase fw-bold">
+                        <button on:click={SignInGoogle} class="btn btn-google btn-login text-uppercase fw-bold">
                             <i class="bi bi-google" /> Sign in with Google
                         </button>
                     </div>
@@ -84,6 +111,12 @@
 </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+    /*font-family: 'Zilla Slab', serif;*/
+    .sign-txt{
+        font-family: 'Zilla Slab', serif;
+    }
+
     .btn-login {
         font-size: 0.9rem;
         letter-spacing: 0.05rem;

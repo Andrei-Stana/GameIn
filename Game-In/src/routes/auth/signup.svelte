@@ -1,10 +1,13 @@
 <script lang="ts">
+	import Navbar from "../../components/Navbar.svelte";
 	import { auth, googleProvider } from '$lib/firebase.ts';
 	import { goto } from '$app/navigation';
 	import {AddAccount} from "$lib/firebase.ts";
 
 	let email = '',
 		password = '';
+
+	$: errCode = null;
 
 	const SignUpGoogle = async () => {
 		const res = await auth.signInWithPopup(googleProvider);
@@ -18,24 +21,46 @@
 		console.log(user);
 		await goto('../profile');
 	};
+
+	const SignUpManual = async () =>{
+		try {
+			const res = await auth.createUserWithEmailAndPassword(email, password)
+			const user = res.user;
+			localStorage.setItem('username', user.displayName);
+			localStorage.setItem('email', user.email);
+			localStorage.setItem('photoUrl', user.photoURL);
+			localStorage.setItem('uid', user.uid);
+			await goto("../profile/create");
+		}catch (e){
+			errCode = e.code;
+		}
+	}
 </script>
 
 <svelte:head>
 	<style>
 		body {
-			background: #23272a;
+			background: linear-gradient(90deg, hsla(258, 100%, 35%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
 		}
 	</style>
 
-	<title>Signup</title>
+	<title>GameIn · Sign Up</title>
 </svelte:head>
-<div class="container">
+<Navbar>
+	<a class="nav-link mx-2" href="/">Home</a>
+	<a class="nav-link mx-2 " href="/auth/signin">Sign In</a>
+	<a class="nav-link mx-2 active" href="/auth/signup">Sign Up</a>
+</Navbar>
+<div class="container mt-5">
 	<div class="row">
 		<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 			<div class="card border-0 shadow rounded-3 my-5">
 				<div class="card-body p-4 p-sm-5">
-					<h5 class="card-title text-center mb-5 fw-light display-3">Sign Up</h5>
-					<form>
+					<h5 class="card-title text-center mb-5 fw-light display-3 sign-txt">Sign Up</h5>
+					<form on:submit|preventDefault={SignUpManual}>
+						{#if errCode}
+							<div class="alert alert-danger" role="alert">{errCode} </div>
+						{/if}
 						<div class="form-floating mb-3">
 							<input
 								required
@@ -49,6 +74,7 @@
 						</div>
 						<div class="form-floating mb-3">
 							<input
+								bind:value={password}
 								required
 								type="password"
 								class="form-control"
@@ -88,6 +114,12 @@
 </div>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+	/*font-family: 'Zilla Slab', serif;*/
+	.sign-txt{
+		font-family: 'Zilla Slab', serif;
+	}
+
 	.btn-login {
 		font-size: 0.9rem;
 		letter-spacing: 0.05rem;

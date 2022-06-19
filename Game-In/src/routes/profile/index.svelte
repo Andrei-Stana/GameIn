@@ -2,11 +2,12 @@
     import { onMount } from 'svelte';
     import { logOut } from '$lib/store';
     import { goto } from '$app/navigation';
+    import Navbar from "../../components/Navbar.svelte";
 
 
     let userName = "", email = "", photoUrl = "", uid = "";
-    let showUid = false;
-
+    $: showUid = false;
+    $: uiUid = "";
 
     onMount(() => {
         email = localStorage.getItem("email");
@@ -15,12 +16,14 @@
         uid = localStorage.getItem("uid");
     });
 
-    const ShowUid = () =>{
-        if (showUid == true)
-            showUid = false
-        else if (showUid == false)
-            showUid = true;
+    const CoverUid = () =>{
+        let result = "";
+        for (let i = 0; i < uid.length; i++) {
+            result += "*";
+        }
+        return result;
     }
+
 
     const CreateRoom = async () =>{
         await goto("http://localhost:5000/"+uid+"/"+1);
@@ -30,46 +33,47 @@
         await goto("/rooms/"+ uid);
     }
 
-
-    async function UserNameNull(){
-        if (userName === ""){
+    $: {
+        if (showUid){
+            uiUid = CoverUid();
         }
     }
-    UserNameNull();
 </script>
 
 <svelte:head>
     <style>
         body {
-            background-color: #272727;
+            background: rgb(238,150,246);
+            background: linear-gradient(90deg, rgba(238,150,246,1) 0%, rgba(109,69,203,1) 100%);
         }
     </style>
 
-    <title>Profile | {userName} </title>
+    <title>GameIn · {userName} </title>
 </svelte:head>
-
+<Navbar>
+    <a class="nav-link mx-2" href="/">Home</a>
+    <a class="nav-link mx-2 " on:click={logOut}>Log Out</a>
+</Navbar>
 <div class="position-relative">
-    <img class="banner" src="https://images.pexels.com/photos/2387532/pexels-photo-2387532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+    <img class="banner" src="https://cdn.pixabay.com/photo/2015/12/06/09/15/maple-1079235_960_720.jpg">
     <div class="position-absolute top-50 start-50 translate-middle">
         <img class="rounded-circle profile-pic border border-5 bg-light" src={photoUrl || "https://wallpapers.com/images/high/scared-zenitsu-anime-pfp-nhuc9w2ghno4beff.jpg"}>
     </div>
 
 </div>
 <div class="text-white text-center">
-    {#if userName}
-        <h1 class="mt-user">{userName}</h1>
-    {/if}
+    <h1 class="mt-user">{userName}</h1>
     <p>{email}</p>
 
     <h1 class="display-6 mt-5 uid-font"><u>UID</u></h1>
     <div class="d-flex justify-content-center">
         <div class="form-check form-switch">
-            <input on:change={ShowUid} class="form-check-input" type="checkbox">
+            <input bind:checked={showUid} class="form-check-input" type="checkbox">
             <div class="d-flex ">
                 {#if showUid}
                     <p>{uid}</p>
                 {:else}
-                    <p class="cover-uid">{uid}</p>
+                    <p class="cover-uid">{uiUid}</p>
                 {/if}
             </div>
         </div>
@@ -77,19 +81,14 @@
 </div>
 
 <div>
-    <div class="text-white text-center d-flex justify-content-center">
-        <p class="display-6 ">Create Room:</p>
-        <button class="btn btn-primary btn-lg" on:click={CreateRoom}>Create</button>
+    <div class="text-white text-center d-flex justify-content-center mb-2 mt-2">
+        <button class="btn btn-primary btn-lg" on:click={CreateChatRoom}>Create Chatroom</button>
     </div>
     <div class="text-white text-center d-flex justify-content-center">
-        <p class="display-6 ">Create Chatroom:</p>
-        <button class="btn btn-primary btn-lg" on:click={CreateChatRoom}>Create</button>
+        <button class="btn btn-primary btn-lg" on:click={CreateRoom}>Create Room</button>
     </div>
 </div>
 
-<div class="text-center mt-3">
-    <button class="btn btn-primary btn-lg" on:click={logOut}>Sign Out</button>
-</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
@@ -118,8 +117,5 @@
     }
 
     .cover-uid{
-        color: black;
-        background-color: black;
-        border-radius: 5px;
     }
 </style>

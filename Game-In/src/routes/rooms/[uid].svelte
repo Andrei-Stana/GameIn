@@ -35,22 +35,41 @@
     onSnapshot(collection(db, uid) ,(snapShot) =>{
         msgs = [];
         msgs = snapShot.docs.map(doc => doc.data())
-        console.log(msgs)
     })
 
 </script>
-
+<svelte:head>
+    <style>
+        body{
+            font-family: helvetica,serif;
+            display: flex ;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</svelte:head>
 <h1 class="text-center display-5">ROOM ID: {uid}</h1>
 
-<form on:submit|preventDefault={HandleSubmit}>
-    <div class="input-group position-absolute bottom-0">
-        <input bind:value={message} type="text" class="form-control" placeholder="Message {uid}">
-        <button class="btn btn-outline-primary" type="submit" >Button</button>
-    </div>
-</form>
 
-<div class="m-5">
+<div>
     {#each msgs as msg}
         <Message message={msg.message} time={msg.time} username={msg.username}/>
     {/each}
 </div>
+<form on:submit|preventDefault={HandleSubmit}>
+    <div class="input-group bottom-0 top-layer mt-5 py-2 px-5 input-bg">
+        <input bind:value={message} type="text" class="form-control" placeholder="Message {uid}">
+        <button class="btn btn-outline-primary" type="submit" >Send</button>
+    </div>
+</form>
+
+<style>
+    .top-layer{
+        z-index: 1000;
+    }
+
+    .input-bg{
+        background-color: #EEE;
+        border-radius: 10px;
+    }
+</style>
