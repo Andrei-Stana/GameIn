@@ -36,7 +36,25 @@
 <svelte:head>
     <style>
         body {
+            background: hsla(258, 100%, 35%, 1);
+
             background: linear-gradient(90deg, hsla(258, 100%, 35%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+
+            background: -moz-linear-gradient(90deg, hsla(258, 100%, 35%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+
+            background: -webkit-linear-gradient(90deg, hsla(258, 100%, 35%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        #signIn{
+            animation: fadeIn 1s;
         }
     </style>
 
@@ -47,7 +65,7 @@
     <a class="nav-link mx-2 active" href="/auth/signin">Sign In</a>
     <a class="nav-link mx-2" href="/auth/signup">Sign Up</a>
 </Navbar>
-<div class="container mt-5">
+<div class="container mt-5" id="signIn">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
             <div class="card border-0 shadow rounded-3 my-5">
