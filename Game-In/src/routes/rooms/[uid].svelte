@@ -15,7 +15,8 @@
     import {db} from "../../lib/firebase.ts";
     import { collection, onSnapshot } from "firebase/firestore";
     import Message from "../../components/Message.svelte";
-    import {onMount} from "svelte";
+    import {onMount, onDestroy} from "svelte";
+    import {goto} from "$app/navigation";
 
     export let uid;
 
@@ -32,11 +33,18 @@
         message = "";
     }
 
-    onSnapshot(collection(db, uid) ,(snapShot) =>{
+    const Leave = async () =>{
+        await goto("../profile");
+    }
+
+    let unsub = onSnapshot(collection(db, uid) ,(snapShot) =>{
         msgs = [];
         msgs = snapShot.docs.map(doc => doc.data())
     })
 
+    onDestroy(() =>{
+        unsub();
+    });
 </script>
 <svelte:head>
     <style>
@@ -57,7 +65,8 @@
     {/each}
 </div>
 <form on:submit|preventDefault={HandleSubmit}>
-    <div class="input-group bottom-0 top-layer mt-5 py-2 px-5 input-bg">
+    <div class="input-group bottom-0 top-layer mt-5 py-2 px-5 input-bg position-sticky">
+        <button class="btn btn-outline-primary" on:click={Leave}>Leave</button>
         <input bind:value={message} type="text" class="form-control" placeholder="Message {uid}">
         <button class="btn btn-outline-primary" type="submit" >Send</button>
     </div>

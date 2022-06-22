@@ -26,9 +26,7 @@
 		try {
 			const res = await auth.createUserWithEmailAndPassword(email, password)
 			const user = res.user;
-			localStorage.setItem('username', user.displayName);
 			localStorage.setItem('email', user.email);
-			localStorage.setItem('photoUrl', user.photoURL);
 			localStorage.setItem('uid', user.uid);
 			await goto("../profile/create");
 		}catch (e){

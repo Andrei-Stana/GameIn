@@ -1,6 +1,8 @@
 import firebase from "firebase/compat";
 import {getFirestore} from "firebase/firestore"
-import { doc, setDoc} from "firebase/firestore";
+import { doc, setDoc, getDoc} from "firebase/firestore";
+import {ref, uploadBytes, getStorage, getDownloadURL} from "firebase/storage";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDc-uBIjO56cELxjVV7AQTI_75ldQZtGtU",
@@ -11,6 +13,7 @@ const firebaseConfig = {
     appId: "1:247685321977:web:0615f8e3da06503915fe28"
 };
 const app = firebase.initializeApp(firebaseConfig);
+const storage = getStorage();
 
 
 export const AddAccount = async (uid, email, photoUrl, username) =>{
@@ -28,8 +31,27 @@ export const AddMessage = async (uid, msg, time, user) =>{
         "username": user
     })
 }
+
+export const UploadImage = async (image, uid) =>{
+    const imageRef = ref(storage, `${uid}/${image.name}`);
+    const imgRes = await uploadBytes(imageRef, image);
+    const imgUrl = await getDownloadURL(imageRef);
+    return imgUrl;
+}
+
+export const GetUsername = async (uid) =>{
+    const docRef = doc(db, "Registered Accounts", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        return docSnap.data();
+    } else {
+        console.log("No such document!");
+    }
+}
+
 export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider;
-export const emailProvider = new firebase.auth.EmailAuthProvider()
 export const db = getFirestore(app);
 

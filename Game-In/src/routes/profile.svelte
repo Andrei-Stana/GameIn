@@ -9,13 +9,6 @@
 	export let userName = "", email = "", photoUrl = "", uid = "";
 	let showUid = false;
 
-	export async function addData() {
-		await addDoc(collection(db, 'room1'), {
-			name: userName
-		});
-
-	}
-
     onMount(() => {
 		userName = localStorage.getItem("username");
 		email = localStorage.getItem("email");
@@ -38,7 +31,6 @@
 		await goto("/rooms/"+ uid);
 	}
 
-	addData();
 </script>
 
 <svelte:head>
