@@ -48,11 +48,9 @@ The knowledge of different technologies will be a small problem but if we don't 
 
 = Project Members
 
-Stana Andrei - Backend, Functionability, System planning
+Kyaw Htet Htun - Fullstack, System planning
 
-Kyaw Htet Htun - Mostly Frontend, Fullstack, Responsive design
+Organisation & Technology - Kyaw Htet Htun
 
-Organisation & Technology - Andrei Stana
-
-Design & UX planning - Kyaw Htet Htun
+Design & UX planning - Andrei Stana
 
