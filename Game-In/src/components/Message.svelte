@@ -52,7 +52,9 @@
     .receiver .message {
         color: white;
         margin-left: 25%;
-        background: rgb(0, 120, 254);
+        background-color: #0093E9;
+        background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+        background-size: cover;
         position: relative;
         text-align: right;
     }
@@ -63,7 +65,8 @@
 
     .sender .message {
         margin-right: 25%;
-        background-color: #EEE;
+        background-color: #85FFBD;
+        background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
         position: relative;
     }
 </style>

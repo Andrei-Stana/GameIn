@@ -62,7 +62,6 @@
 </svelte:head>
 <Navbar>
     <a class="nav-link mx-2" href="/">Home</a>
-    <a class="nav-link mx-2 active" href="/auth/signin">Sign In</a>
     <a class="nav-link mx-2" href="/auth/signup">Sign Up</a>
 </Navbar>
 <div class="container mt-5" id="signIn">

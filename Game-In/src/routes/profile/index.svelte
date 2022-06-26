@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { logOut } from '$lib/store';
 	import { goto } from '$app/navigation';
-	import { GetUsername } from '../../lib/firebase';
+	import { GetUsername, GetPhotoUrl } from '../../lib/firebase';
 	import Navbar from '../../components/Navbar.svelte';
 
 	let placeholderPfp =
@@ -19,8 +19,8 @@
 	onMount(() => {
 		email = localStorage.getItem('email');
 		uid = localStorage.getItem('uid');
-
-		console.log(GetUsername(uid))
+		GetUsername(uid).then(data => userName = data)
+		GetPhotoUrl(uid).then(data => photoUrl = data);
 	});
 
 	const CoverUid = () => {
@@ -44,6 +44,10 @@
 		await goto('/rooms/' + id);
 	}
 
+	async function ExploreChatRoom() {
+		await goto('/rooms');
+	}
+
 	$: {
 		if (showUid) {
 			uiUid = CoverUid();
@@ -62,7 +66,7 @@
 </svelte:head>
 <Navbar>
 	<a class="nav-link mx-2" href="/">Home</a>
-	<a class="nav-link mx-2 " on:click={logOut}>Log Out</a>
+	<a class="nav-link mx-2 " on:click={logOut}><i class="bi bi-box-arrow-in-left"></i> Log Out</a>
 </Navbar>
 <div class="position-relative">
 	<img class="banner" src="..\static\Images\profile_default.png" />
@@ -78,7 +82,7 @@
 	<h1 class="mt-user">{userName}</h1>
 	<p>{email}</p>
 
-	<h1 class="display-6 mt-5 uid-font"><u>UID</u></h1>
+	<h1 class="display-6 mt-5 uid-font">UID</h1>
 	<div class="d-flex justify-content-center">
 		<div class="form-check form-switch">
 			<input bind:checked={showUid} class="form-check-input" type="checkbox" />
@@ -96,7 +100,7 @@
 					<p class="cover-uid">{uiUid}</p>
 				{/if}
 				<button on:click={CopyToClipBoard} type="button" class="btn btn-primary ms-1">
-					<i class="bi bi-clipboard" />
+					<i class="bi bi-clipboard"/>
 				</button>
 			</div>
 		</div>
@@ -106,11 +110,12 @@
 <div class="d-flex justify-content-center">
 	<p class="mx-2" id="room-id-text">Room ID:</p>
 	<form action="" class="mx-1">
-		<input bind:value={id} type="text" class="form-control" placeholder="Room ID" />
+		<input bind:value={id} type="text" class="form-control" placeholder="Paste your UID" required/>
 	</form>
+	<button class="btn btn-primary mx-1" id="btn-1" on:click={CreateRoom}><i class="bi bi-camera-video"></i> Join Video</button>
+	<button class="btn btn-primary" id="btn-2" on:click={CreateChatRoom}> <i class="bi bi-chat"></i> Join Chat</button>
+	<button class="btn btn-primary mx-1" id="btn-3" on:click={ExploreChatRoom}><i class="bi bi-search"></i> Explore</button>
 
-	<button class="btn btn-primary mx-1" id="btn-1" on:click={CreateRoom}>Join Video</button>
-	<button class="btn btn-primary" id="btn-2" on:click={CreateChatRoom}>Join Chat</button>
 </div>
 
 <style>

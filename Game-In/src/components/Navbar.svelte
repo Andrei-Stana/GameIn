@@ -15,8 +15,12 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
     /*font-family: 'Zilla Slab', serif;*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
+    /*font-family: 'Sora', sans-serif;*/
+
     .nav-element{
-        font-family: 'Zilla Slab', serif;
+        font-family: 'Sora', sans-serif;
         font-size: 1.5em;
     }
 </style>

@@ -54,6 +54,28 @@ export const GetUsername = async (uid) =>{
     }
 }
 
+export const GetPhotoUrl = async (uid) =>{
+    if (uid){
+        const docRef = doc(db, "Registered Accounts", uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return docSnap.data().photoUrl;
+        } else {
+            throw new Error("User don't EXISTS!");
+        }
+    }
+    else{
+        throw new Error("UID don't EXISTS!");
+    }
+}
+
+export const GetCollections = async () =>{
+    const rooms = [];
+    const collections = await firebase.firestore().collection("Registered Accounts").get();
+    collections.docs.map(doc => rooms.push(doc.id));
+    return rooms;
+}
+
 export const auth = firebase.auth();
 export const googleProvider = new firebase.auth.GoogleAuthProvider;
 export const db = getFirestore(app);
