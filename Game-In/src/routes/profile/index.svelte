@@ -2,24 +2,25 @@
 	import { onMount } from 'svelte';
 	import { logOut } from '$lib/store';
 	import { goto } from '$app/navigation';
-	import { doc, getDoc } from 'firebase/firestore';
-	import { db } from '../../lib/firebase.ts';
+	import { GetUsername } from '../../lib/firebase';
 	import Navbar from '../../components/Navbar.svelte';
 
 	let placeholderPfp =
 		'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png';
 	let email = '',
 		uid = '',
-		photoUrl = '';
+		photoUrl = '',
+		userName = '';
 	$: showUid = false;
 	$: uiUid = '';
-	$: userName = "";
 
 	let id = '';
 
 	onMount(() => {
 		email = localStorage.getItem('email');
 		uid = localStorage.getItem('uid');
+
+		console.log(GetUsername(uid))
 	});
 
 	const CoverUid = () => {
@@ -36,6 +37,7 @@
 
 	const CopyToClipBoard = async () => {
 		await navigator.clipboard.writeText(uid);
+		alert('Copied to Clipboard');
 	};
 
 	async function CreateChatRoom() {

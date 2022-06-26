@@ -40,14 +40,17 @@ export const UploadImage = async (image, uid) =>{
 }
 
 export const GetUsername = async (uid) =>{
-    const docRef = doc(db, "Registered Accounts", uid);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        return docSnap.data();
-    } else {
-        console.log("No such document!");
+    if (uid){
+        const docRef = doc(db, "Registered Accounts", uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return docSnap.data().username;
+        } else {
+            throw new Error("User don't EXISTS!");
+        }
+    }
+    else{
+        throw new Error("UID don't EXISTS!");
     }
 }
 

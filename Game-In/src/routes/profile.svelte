@@ -51,7 +51,7 @@
 
 </div>
 <div class="text-center">
-	<h1 class="mt-user">{userName}</h1>
+	<h1 class="mt-user">{userName || "Your name"}</h1>
 	<p>{email}</p>
 
 	<h1 class="display-6 mt-3 uid-font"><u>UID</u></h1>

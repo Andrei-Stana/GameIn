@@ -7,10 +7,11 @@
     let image, uid, email;
     $: uiImg = "";
 	$: upLoadedImg = "";
-	$: username = "";
+	let username = "";
 	onMount(() =>{
 		uid = localStorage.getItem("uid");
 		email = localStorage.getItem("email")
+        console.log(GetUsername(uid))
 	})
 
     const OnFileSelected = (e) =>{
@@ -31,10 +32,6 @@
 		localStorage.setItem("username", username);
 		await goto("../profile");
     }
-
-	$: {
-		username = GetUsername(uid);
-	}
 </script>
 <h1 class="display-2 text-center">Only 1 Step left</h1>
 <div class="text-center">
