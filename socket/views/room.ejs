@@ -12,7 +12,7 @@
     <script src="script.js" defer></script>
     <title><%= roomId %></title>
     <style>
-        body{
+        body{            
             background: linear-gradient(180deg, #313131 0%, #313131 100%);
             background-repeat: no-repeat;
             background-size: cover;
@@ -31,10 +31,7 @@
           height: 100%;
           object-fit: cover;
           margin: 10%;
-          border-style: solid;
-          border-width: 5px;
-          border-color: #000000;
-          border-radius: 2%;
+          border-radius: 10%;
         }
 
         .RoomId{
@@ -45,9 +42,10 @@
 </head>
 <body>
     <h1 class="RoomId">Room ID: <%= roomId %></h1>
-    <div id="video-grid"></div>
-    <div class="position-absolute bottom-0 right-0 m-5">
-        <a href="http://localhost:3000/profile" class="btn btn-primary btn-lg"><i class="bi bi-door-open"></i> Leave</a>
+    <div id="video-grid">
+    </div>
+    <div class="position-absolute bottom-0  m-5">
+        <a href="http://localhost:3000/profile" class="btn btn-danger btn-lg rounded-circle "><i class="bi bi-door-open"></i></a>
     </div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
