@@ -50,7 +50,9 @@ The knowledge of different technologies will be a small problem but if we don't 
 
 Kyaw Htet Htun - Fullstack, System planning
 
-Organisation & Technology - Kyaw Htet Htun
+Technology - Kyaw Htet Htun
+
+Organisation - Andrei Stana & Kyaw Htet Htun
 
 Design & UX planning - Andrei Stana
 
