@@ -33,7 +33,6 @@
 
 	const HandleSubmit = async () => {
 		await AddMessage(uid, message, Date.now(), username);
-		document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight;
 		message = '';
 	};
 
@@ -71,7 +70,7 @@
 	</style>
 	<title>GameIn · {uid}</title>
 </svelte:head>
-<h1 class="text-center display-5">ROOM ID: {uid}</h1>
+<h1 class="text-center room-id-txt">ROOM ID: {uid}</h1>
 
 <div class="mb-5" id="chat">
 	{#each msgs as msg}
@@ -94,7 +93,20 @@
 </form>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500&display=swap');
+	/*font-family: 'Sora', sans-serif;*/
 	.top-layer {
 		z-index: 1000;
+	}
+
+	.room-id-txt{
+		font-size: 2em;
+		font-family: 'Sora', sans-serif;
+	}
+
+	@media screen and (max-width: 550px){
+		.room-id-txt{
+			font-size: 1em;
+		}
 	}
 </style>
