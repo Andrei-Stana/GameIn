@@ -1,13 +1,13 @@
 <script>
     import {GetCollections} from "../../lib/firebase.ts";
+    import Room from '../../components/Room.svelte';
 
     let rooms = [];
     GetCollections().then(docs => rooms = (docs));
-    $: console.log(rooms)
 </script>
 
-<div>
+<div class="container text-center">
     {#each rooms as room}
-        <h1>{room}</h1>
+        <Room roomid="{room}"/>
     {/each}
 </div>

@@ -23,9 +23,12 @@
 	let message = '';
 	let msgs = [];
 	let username = '';
+	let TOKEN = "4bf957b2484fa876b79aefc68e8aa2d3ba57872e";
+	let url = "http://localhost:3000/rooms/UZ9NPmlT0serxmsaXX9GT6Q9NqF2";
 
 	onMount(() => {
 		username = localStorage.getItem('username');
+		console.log()
 	});
 
 	const HandleSubmit = async () => {
@@ -43,6 +46,15 @@
 		msgs = snapShot.docs.map((doc) => doc.data());
 	});
 
+	fetch('https://api-ssl.bitly.com/v4/bitlinks', {
+		method: 'POST',
+		headers: {
+			'Authorization': `Bearer ${TOKEN}`,
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ "long_url": `${url}`, "domain": "bit.ly", "group_guid": "Ba1bc23dE4F", "title": "Bitly API Documentation", "tags": [ "bitly", "api" ], "deeplinks": [ { "app_id": "com.bitly.app", "app_uri_path": "/store?id=123456", "install_url": "https://play.google.com/store/apps/details?id=com.bitly.app&hl=en_US", "install_type": "promote_install" } ] })
+	}).then(data => console.log(data))
+
 	onDestroy(() => {
 		unsub();
 	});
@@ -57,6 +69,7 @@
 			align-items: center;
 		}
 	</style>
+	<title>GameIn · {uid}</title>
 </svelte:head>
 <h1 class="text-center display-5">ROOM ID: {uid}</h1>
 
