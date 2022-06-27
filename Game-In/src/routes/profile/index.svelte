@@ -4,6 +4,7 @@
 	import { goto } from '$app/navigation';
 	import { GetUsername, GetPhotoUrl } from '../../lib/firebase';
 	import Navbar from '../../components/Navbar.svelte';
+	import NotRegisterdModal from "../../components/NotRegisterdModal.svelte";
 
 	let placeholderPfp =
 		'https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png';
@@ -13,14 +14,19 @@
 		userName = '';
 	$: showUid = false;
 	$: uiUid = '';
+	$: err = "";
 
 	let id = '';
 
 	onMount(() => {
 		email = localStorage.getItem('email');
 		uid = localStorage.getItem('uid');
-		GetUsername(uid).then(data => userName = data)
-		GetPhotoUrl(uid).then(data => photoUrl = data);
+		GetUsername(uid)
+			.then((data) => (userName = data))
+			.catch((e) => {
+				err = (e);
+			});
+		GetPhotoUrl(uid).then((data) => (photoUrl = data));
 	});
 
 	const CoverUid = () => {
@@ -64,10 +70,17 @@
 
 	<title>GameIn · {userName}</title>
 </svelte:head>
-<Navbar>
-	<a class="nav-link mx-2" href="/">Home</a>
-	<a class="nav-link mx-2 " on:click={logOut}><i class="bi bi-box-arrow-in-left"></i> Log Out</a>
-</Navbar>
+
+{#if err}
+	<NotRegisterdModal/>
+	{:else}
+	<Navbar>
+		<a class="nav-link mx-2" href="/">Home</a>
+		<a class="nav-link mx-2 " on:click={logOut}><i class="bi bi-box-arrow-in-left" /> Log Out</a>
+	</Navbar>
+{/if}
+
+
 <div class="position-relative">
 	<img class="banner" src="..\static\Images\profile_default.png" />
 	<div class="position-absolute top-50 start-50 translate-middle">
@@ -100,7 +113,7 @@
 					<p class="cover-uid">{uiUid}</p>
 				{/if}
 				<button on:click={CopyToClipBoard} type="button" class="btn btn-primary ms-1">
-					<i class="bi bi-clipboard"/>
+					<i class="bi bi-clipboard" />
 				</button>
 			</div>
 		</div>
@@ -110,12 +123,17 @@
 <div class="d-flex justify-content-center">
 	<p class="mx-2" id="room-id-text">Room ID:</p>
 	<form action="" class="mx-1">
-		<input bind:value={id} type="text" class="form-control" placeholder="Paste your UID" required/>
+		<input bind:value={id} type="text" class="form-control" placeholder="Paste your UID" required />
 	</form>
-	<button class="btn btn-primary mx-1" id="btn-1" on:click={CreateRoom}><i class="bi bi-camera-video"></i> Join Video</button>
-	<button class="btn btn-primary" id="btn-2" on:click={CreateChatRoom}> <i class="bi bi-chat"></i> Join Chat</button>
-	<button class="btn btn-primary mx-1" id="btn-3" on:click={ExploreChatRoom}><i class="bi bi-search"></i> Explore</button>
-
+	<button class="btn btn-primary mx-1" id="btn-1" on:click={CreateRoom}
+		><i class="bi bi-camera-video" /> Join Video</button
+	>
+	<button class="btn btn-primary" id="btn-2" on:click={CreateChatRoom}>
+		<i class="bi bi-chat" /> Join Chat</button
+	>
+	<button class="btn btn-primary mx-1" id="btn-3" on:click={ExploreChatRoom}
+		><i class="bi bi-search" /> Explore</button
+	>
 </div>
 
 <style>
@@ -148,6 +166,11 @@
 		font-family: 'Noto Serif', serif;
 	}
 
-	.cover-uid {
+	@media screen and (max-width: 500px){
+		.profile-pic {
+			width: 10rem;
+			height: 10em;
+			margin-top: 200%;
+		}
 	}
 </style>
