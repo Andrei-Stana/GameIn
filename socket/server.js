@@ -6,6 +6,9 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const { v4: uuidV4 } = require("uuid");
 const localStorage = require("localStorage");
+require("dotenv").config();
+
+const PORT = process.env.PORT || 5000;
 
 var admin = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
@@ -61,4 +64,4 @@ io.on("connection", (socket) => {
 });
 
 // Opening server
-server.listen(5000, () => console.log("Sever Runnig"));
+server.listen(PORT, () => console.log("Sever Runnig on " + PORT));
